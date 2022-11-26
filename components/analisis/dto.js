@@ -9,8 +9,6 @@ const analisis = (data) => ({
 
 const cita = (data) => ({
     id:data._id,
-    paciente:user(data.paciente),
-    doctor:doctor(data.doctor),
     day:data.day,
     month:data.month,
     year:data.year,

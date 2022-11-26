@@ -46,7 +46,10 @@ exports.updateCita = async(data,id) => {
 exports.findCitaById = async(id) => {
     return new Promise(
         (resolve,reject) => Cita
-        .findById(id)
+        .populate({path:'paciente',select:'email firstName lastName cellPhone documentNumber rol'})
+        .populate({path:'doctor',select:'usuario categoria descripcion'})
+        .populate({path:'doctor.usuario',select:'email firstName lastName cellPhone documentNumber rol'})
+        .populate({path:''})
         .exec((err,doc)=> {
             if(err) return reject(err);
             return resolve(doc);

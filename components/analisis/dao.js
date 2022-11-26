@@ -36,6 +36,10 @@ exports.findAllAnalisis = async(id) => {
     return new Promise(
         (resolve,reject) => Analisis
         .find({paciente:id})
+        .populate({path:'usuario',select:'email firstName lastName cellPhone documentNumber rol'})
+        .populate({path:'doctor',select:'usuario categoria descripcion'})
+        .populate({path:'doctor.usuario',select:'email firstName lastName cellPhone documentNumber rol'})
+        .populate({path:'cita',select:'day month year hour minutes completada categoria fechaCompleta'})
         .exec((err,doc)=> {
             if(err) return reject(err);
             return resolve(doc);
