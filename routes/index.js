@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const auth = require('../components/auth/routes');
+const analisis = require('../components/analisis/routes');
+const citas = require('../components/citas/routes');
+const doctor = require('../components/doctor/routes');
+router.use('/auth',auth);
+router.use('/analisis',analisis);
+router.use('/doctor',doctor);
+router.use('/citas',citas);
+module.exports = router;
