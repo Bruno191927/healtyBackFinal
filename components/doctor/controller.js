@@ -5,7 +5,7 @@ exports.createDoctor = async(request,response) => {
     const data = request.body;
     const id = request.user.id;
 
-    const existDoctor = await DoctorDao.findDoctorByUserId(id);
+    const existDoctor = await DoctorDao.findDoctorByUserId(data.usuario);
 
     if(existDoctor){
         return response.status(400).json({msg:"Este usuario ya se ha registrado"});

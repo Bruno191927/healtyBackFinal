@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const doctorSchema = new mongoose.Schema({
     usuario:{
         type:Schema.Types.ObjectId,
-        ref:'Auth',
+        ref:'User',
         required:true
     },
     categoria:{
